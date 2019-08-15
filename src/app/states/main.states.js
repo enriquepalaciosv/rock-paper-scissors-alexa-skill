@@ -217,6 +217,34 @@ function register(voxaApp) {
       };
     }
   });
+
+  voxaApp.onIntent("NewGameIntent", voxaEvent => {
+    if (!voxaEvent.model.wins) {
+      return {
+        flow: "continue",
+        to: "askHowManyWins",
+      };
+    }
+    return {
+      flow: "yield",
+      reply: "AskIfRestart",
+      to: "shouldRestart",
+    };
+  });
+
+  voxaApp.onState("shouldRestart", voxaEvent => {
+    if (voxaEvent.intent.name === "YesIntent") {
+      return {
+        flow: "continue",
+        to: "shouldStartANewGame",
+      };
+    } else {
+      return {
+        flow: "continue",
+        to: "askUserChoice",
+      };
+    }
+  });
 }
 
 module.exports = register;

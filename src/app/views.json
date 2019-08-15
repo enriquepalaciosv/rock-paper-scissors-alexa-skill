@@ -47,6 +47,9 @@
       },
       "NoScore":{
         "say": "There's no score yet. Would you like to start a game?"
+      },
+      "AskIfRestart":{
+        "say": "The score right now is: Alexa {alexaWins}, you {userWins}. Are you sure you want to start a new game?"
       }
     }
   }
