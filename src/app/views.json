@@ -4,6 +4,9 @@
       "Welcome": {
         "say": "Welcome to Rock Paper Scissors!"
       },
+      "NoMaxWins": {
+        "say": "Let's set the rules first."
+      },
       "AskHowManyWins": {
         "say": "How many times do I have to beat you in rock paper scissors to be the ultimate winner?"
       },
@@ -11,7 +14,7 @@
         "say": "All right, let's start."
       },
       "AskUserChoice": {
-        "say": "I made my choice already, what's your choice? rock, paper or scissors?",
+        "say": "I made my choice already, what's your choice? Rock, paper or scissors?",
         "reprompt": "what's your choice? rock, paper or scissors?"
       },
       "TiedResult": {
@@ -38,6 +41,12 @@
       },
       "Bye": {
         "say": "That's all right, until next time!"
+      },
+      "Score":{
+        "say": "Here's the score. You: {userWins} wins, me: {alexaWins} wins."
+      },
+      "NoScore":{
+        "say": "There's no score yet. Would you like to start a game?"
       }
     }
   }

@@ -176,6 +176,47 @@ function register(voxaApp) {
       reply: "Bye",
     };
   });
+
+  voxaApp.onIntent("GetScoreIntent", voxaEvent => {
+    const { wins, userWins, alexaWins } = voxaEvent.model;
+
+    if (!wins) {
+      return {
+        flow: "continue",
+        reply: "NoMaxWins",
+        to: "askHowManyWins",
+      };
+    }
+
+    if (!userWins && !alexaWins) {
+      return {
+        flow: "yield",
+        reply: "NoScore",
+        to: "handleNoScore",
+      };
+    }
+
+    return {
+      flow: "continue",
+      reply: "Score",
+      to: "askUserChoice",
+    };
+  });
+
+  voxaApp.onState("handleNoScore", voxaEvent => {
+    if (voxaEvent.intent.name === "YesIntent") {
+      return {
+        flow: "continue",
+        reply: "StartGame",
+        to: "askUserChoice",
+      };
+    } else {
+      return {
+        flow: "terminate",
+        reply: "Bye",
+      };
+    }
+  });
 }
 
 module.exports = register;
