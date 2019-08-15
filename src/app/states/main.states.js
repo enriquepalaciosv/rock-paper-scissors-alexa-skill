@@ -17,13 +17,40 @@ function register(voxaApp) {
 
   voxaApp.onState("getHowManyWins", voxaEvent => {
     if (voxaEvent.intent.name === "MaxWinsIntent") {
-      voxaEvent.model.wins = voxaEvent.intent.params.wins;
+      const param = voxaEvent.intent.params.wins;
+      voxaEvent.model.wins = param;
       voxaEvent.model.userWins = 0;
       voxaEvent.model.alexaWins = 0;
+
+      if (param > 10) {
+        return {
+          flow: "yield",
+          reply: "BigWinsNumber",
+          to: "shouldPlayALot",
+        };
+      } else {
+        return {
+          flow: "continue",
+          reply: "StartGame",
+          to: "askUserChoice",
+        };
+      }
+    } else {
+      return { flow: "continue", to: "HelpIntent" };
+    }
+  });
+
+  voxaApp.onState("shouldPlayALot", voxaEvent => {
+    if (voxaEvent.intent.name === "YesIntent") {
       return {
         flow: "continue",
         reply: "StartGame",
         to: "askUserChoice",
+      };
+    } else {
+      return {
+        flow: "continue",
+        to: "askHowManyWins",
       };
     }
   });

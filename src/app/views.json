@@ -43,13 +43,16 @@
         "say": "That's all right, until next time!"
       },
       "Score":{
-        "say": "Here's the score. You: {userWins} wins, me: {alexaWins} wins."
+        "say": "Here's the score. You: {userWins} wins, me: {alexaWins} wins. {wins} times needed to win the match."
       },
       "NoScore":{
         "say": "There's no score yet. Would you like to start a game?"
       },
       "AskIfRestart":{
         "say": "The score right now is: Alexa {alexaWins}, you {userWins}. Are you sure you want to start a new game?"
+      },
+      "BigWinsNumber":{
+        "say": "{wins} is a big number, are you sure you want to play until one of us wins {wins} times?"
       }
     }
   }

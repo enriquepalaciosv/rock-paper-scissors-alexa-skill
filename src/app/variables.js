@@ -5,3 +5,7 @@ exports.userWins = function(voxaEvent) {
 exports.alexaWins = function(voxaEvent) {
   return voxaEvent.model.alexaWins;
 };
+
+exports.wins = function(voxaEvent) {
+  return voxaEvent.model.wins;
+};
