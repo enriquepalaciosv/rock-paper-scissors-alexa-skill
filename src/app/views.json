@@ -53,6 +53,9 @@
       },
       "BigWinsNumber":{
         "say": "{wins} is a big number, are you sure you want to play until one of us wins {wins} times?"
+      },
+      "Help":{
+        "say":"Hey there, this is a classic rock paper scissors game. You can start a new game, saying: 'start a new game'. You can get the score of the game, saying: 'score', 'my victories', 'who's winning', and things like that, you get the idea. If you feel I'm beating you (haha), at any time you can restart the game saying: let's play again."
       }
     }
   }

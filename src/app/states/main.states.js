@@ -36,6 +36,7 @@ function register(voxaApp) {
         };
       }
     } else {
+      console.log("Invalid value");
       return { flow: "continue", to: "HelpIntent" };
     }
   });
@@ -271,6 +272,14 @@ function register(voxaApp) {
         to: "askUserChoice",
       };
     }
+  });
+
+  voxaApp.onIntent("HelpIntent", () => {
+    return {
+      flow: "continue",
+      reply: "Help",
+      to: "askHowManyWins",
+    };
   });
 }
 
